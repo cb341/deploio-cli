@@ -27,6 +27,7 @@ Usage:
   deploio <command> [args]
 
 Commands:
+  login                                Authenticate with nctl
   new <project-env>                    Create project and app (git url inferred)
   list                                 List apps as <project>-<env>
   logs <project-env> [-- ...args]      Stream logs for app
@@ -54,6 +55,7 @@ Global flags (before command):
 
 Examples:
 ```sh
+deploio login
 deploio new fizzbuzz-main
 depl logs fizzbuzz-main
 deploio exec fizzbuzz-main -- -c 'echo hi'

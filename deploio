@@ -89,6 +89,7 @@ def usage(exit_code = 1)
       deploio <command> [args]
 
     Commands:
+      login                                Authenticate with nctl
       new <project-env>                    Create project and app (git url inferred)
       list                                 List apps as <project>-<env>
       logs <project-env> [-- ...args]      Stream logs for app
@@ -109,6 +110,7 @@ def usage(exit_code = 1)
                                            nctl help.
 
     Examples:
+      deploio login
       deploio new fizzbuzz-main
       depl logs fizzbuzz-main
       deploio exec fizzbuzz-main -- -c 'echo hi'
@@ -218,6 +220,13 @@ def validate_project_env_with_suggestions(project_env, org_prefix, runner, comma
 end
 
 COMMANDS = {
+  'login' => {
+    help: 'nctl auth login --help',
+    run: lambda { |args, _org_prefix, runner|
+      extra = args.empty? ? '' : " #{args.join(' ')}"
+      runner.run("nctl auth login#{extra}")
+    }
+  },
   'new' => {
     help: 'nctl create app --help',
     run: lambda { |args, org_prefix, runner|

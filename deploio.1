@@ -37,6 +37,9 @@ Show help. If a command is provided, shows help for the underlying nctl command.
 If no command is provided, shows top-level help.
 .SH COMMANDS
 .TP
+.B login
+Authenticate with nctl. This command forwards to \fBnctl auth login\fR.
+.TP
 .BR "new " \fIPROJECT\-ENV\fR
 Create project and app. Git URL is automatically inferred from the project name.
 Creates the project if it doesn't exist.
@@ -74,6 +77,9 @@ Environment name (e.g., staging, production, main, develop)
 .PP
 Examples: \fBmyapp\-staging\fR, \fBapi\-prod\fR, \fBfizzbuzz\-main\fR
 .SH EXAMPLES
+.TP
+Authenticate with nctl:
+.B deploio login
 .TP
 Create a new app:
 .B deploio new fizzbuzz\-main
