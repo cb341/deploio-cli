@@ -6,6 +6,7 @@ _deploio() {
 
   local -a commands
   commands=(
+    'login:Authenticate with nctl'
     'new:Create project and app (git url inferred)'
     'list:List apps as <project>-<env>'
     'logs:Stream logs for app'
